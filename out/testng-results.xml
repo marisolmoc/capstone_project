@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="8" passed="8">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Elements Tests" duration-ms="11278" started-at="2022-12-27T12:36:55 MST" finished-at="2022-12-27T12:37:06 MST">
+    <groups>
+    </groups>
+    <test name="/Users/mm0922/projects/Capstone_Project" duration-ms="11278" started-at="2022-12-27T12:36:55 MST" finished-at="2022-12-27T12:37:06 MST">
+      <class name="ElementsTests">
+        <test-method status="PASS" signature="TestCategoriesDisplayed()[pri:0, instance:ElementsTests@6ad59d92]" name="TestCategoriesDisplayed" duration-ms="1213" started-at="2022-12-27T12:36:55 MST" description="SR-12111: Test Categories are displayed" finished-at="2022-12-27T12:36:56 MST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestCategoriesDisplayed -->
+        <test-method status="PASS" signature="TestURLIsCorrect()[pri:0, instance:ElementsTests@6ad59d92]" name="TestURLIsCorrect" duration-ms="9" started-at="2022-12-27T12:36:56 MST" description="Testing that the URL is as expected" finished-at="2022-12-27T12:36:56 MST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestURLIsCorrect -->
+        <test-method status="PASS" signature="testPhoneProductPage()[pri:1, instance:ElementsTests@6ad59d92]" name="testPhoneProductPage" duration-ms="5577" started-at="2022-12-27T12:36:56 MST" description="SR-12120: Test Products Phones Catalog" finished-at="2022-12-27T12:37:02 MST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testPhoneProductPage -->
+        <test-method status="PASS" signature="testProductImage()[pri:2, instance:ElementsTests@6ad59d92]" name="testProductImage" duration-ms="73" started-at="2022-12-27T12:37:02 MST" description="SR-12120: Test product image is present" depends-on-methods="ElementsTests.testPhoneProductPage" finished-at="2022-12-27T12:37:02 MST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testProductImage -->
+        <test-method status="PASS" signature="testProductPrice()[pri:3, instance:ElementsTests@6ad59d92]" name="testProductPrice" duration-ms="63" started-at="2022-12-27T12:37:02 MST" description="SR-12120: Test product price is present" depends-on-methods="ElementsTests.testPhoneProductPage" finished-at="2022-12-27T12:37:02 MST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testProductPrice -->
+        <test-method status="PASS" signature="testProductDesc()[pri:4, instance:ElementsTests@6ad59d92]" name="testProductDesc" duration-ms="25" started-at="2022-12-27T12:37:02 MST" description="SR-12120: Test product description is present" depends-on-methods="ElementsTests.testPhoneProductPage" finished-at="2022-12-27T12:37:02 MST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testProductDesc -->
+        <test-method status="PASS" signature="testProductCartButton()[pri:5, instance:ElementsTests@6ad59d92]" name="testProductCartButton" duration-ms="41" started-at="2022-12-27T12:37:02 MST" description="SR-12120: Test product description is present" depends-on-methods="ElementsTests.testPhoneProductPage" finished-at="2022-12-27T12:37:02 MST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testProductCartButton -->
+        <test-method status="PASS" signature="testAddToCartAlert()[pri:6, instance:ElementsTests@6ad59d92]" name="testAddToCartAlert" duration-ms="4092" started-at="2022-12-27T12:37:02 MST" description="SR-12121: Test add to cart browser alert" depends-on-methods="ElementsTests.testPhoneProductPage" finished-at="2022-12-27T12:37:06 MST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAddToCartAlert -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:ElementsTests@6ad59d92]" name="tearDown" is-config="true" duration-ms="121" started-at="2022-12-27T12:37:06 MST" finished-at="2022-12-27T12:37:06 MST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- ElementsTests -->
+    </test> <!-- /Users/mm0922/projects/Capstone_Project -->
+  </suite> <!-- Elements Tests -->
+</testng-results>

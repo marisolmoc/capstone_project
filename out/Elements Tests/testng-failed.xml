@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Elements Tests]">
+  <test thread-count="5" name="/Users/mm0922/projects/Capstone_Project(failed)">
+    <classes>
+      <class name="ElementsTests">
+        <methods>
+          <include name="testProductDesc"/>
+          <include name="testPhoneProductPage"/>
+          <include name="tearDown"/>
+          <include name="testProductImage"/>
+          <include name="testAddToCartAlert"/>
+          <include name="testProductPrice"/>
+          <include name="testProductCartButton"/>
+        </methods>
+      </class> <!-- ElementsTests -->
+    </classes>
+  </test> <!-- /Users/mm0922/projects/Capstone_Project(failed) -->
+</suite> <!-- Failed suite [Elements Tests] -->
