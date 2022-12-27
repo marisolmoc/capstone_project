@@ -13,14 +13,7 @@ public class ElementsTests extends BaseTest {
     CategoriesSteps categoriesSteps =  new CategoriesSteps(driver);
     ProductSteps productSteps = new ProductSteps(driver);
 
-    @Test(description = "Testing that the URL is as expected")
-    public void TestURLIsCorrect() {
-        String expectedURL = "https://www.demoblaze.com/";
-        String actualURL = driver.getCurrentUrl();
-        CustomAssertions.isUrlValid(expectedURL, actualURL);
-    }
-
-    @Test(description = "SR-12111: Test Categories are displayed")
+    @Test(description = "SR-12111: Test Categories are displayed", priority = 1)
     public void TestCategoriesDisplayed() {
         WebElement catListGroup = driver.findElement(By.xpath("//a[contains(text(), 'CATEGORIES')]"));
         String url = driver.getCurrentUrl();
@@ -28,8 +21,29 @@ public class ElementsTests extends BaseTest {
         CustomAssertions.isElementDisplayed(catListGroup.isDisplayed(), url, leftMenu);
     }
 
-    @Test(description = "SR-12120: Test Products Phones Catalog", priority = 1)
-    public void testPhoneProductPage() {
+    @Test(description = "SR-12111: Test first category", dependsOnMethods = {"TestCategoriesDisplayed"}, priority = 2)
+    private void TestFirstCategory() {
+        WebElement cat1 = driver.findElement(By.xpath("//a[contains(text(), 'Phones')]"));
+        String cat1Name = cat1.getText();
+        CustomAssertions.isTextEqual("Phones", cat1Name);
+    }
+
+    @Test(description = "SR-12111: Test second category", dependsOnMethods = {"TestCategoriesDisplayed"}, priority = 3)
+    private void TestSecondCategory(){
+        WebElement cat2 = driver.findElement(By.xpath("//a[contains(text(), 'Laptops')]"));
+        String cat2Name = cat2.getText();
+        CustomAssertions.isTextEqual("Laptops", cat2Name);
+    }
+
+    @Test(description = "SR-12111: Test third category", dependsOnMethods = {"TestCategoriesDisplayed"}, priority = 4)
+    private void TestThirdCategory(){
+        WebElement cat3 = driver.findElement(By.xpath( "//a[contains(text(), 'Monitors')]"));
+        String cat3Name = cat3.getText();
+        CustomAssertions.isTextEqual("Monitors", cat3Name);
+    }
+
+    @Test(description = "SR-12120: Test Products Phones Catalog", priority = 5)
+    public void TestPhoneProductPage() {
         Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
                 .withTimeout(Duration.ofSeconds(2))
                 .pollingEvery(Duration.ofMillis(2000))
@@ -54,41 +68,36 @@ public class ElementsTests extends BaseTest {
         CustomAssertions.isTextEqual(expectedProductName, actualProductName);
     }
 
-    @Test(description = "SR-12120: Test product image is present", dependsOnMethods = {"testPhoneProductPage"},
-            priority = 2)
-    public void testProductImage(){
+    @Test(description = "SR-12120: Test product image is present", dependsOnMethods = {"TestPhoneProductPage"})
+    public void TestProductImage(){
         WebElement productImage = productSteps.getProductImage();
         String url = driver.getCurrentUrl();
         CustomAssertions.isElementDisplayed(productImage.isDisplayed(), url, "product Image");
     }
 
-    @Test(description = "SR-12120: Test product price is present", dependsOnMethods = {"testPhoneProductPage"},
-            priority = 3)
-    public void testProductPrice(){
+    @Test(description = "SR-12120: Test product price is present", dependsOnMethods = {"TestPhoneProductPage"})
+    public void TestProductPrice(){
         WebElement productPrice = productSteps.getProductPrice();
         String url = driver.getCurrentUrl();
         CustomAssertions.isElementDisplayed(productPrice.isDisplayed(), url, "product price");
     }
 
-    @Test(description = "SR-12120: Test product description is present", dependsOnMethods = {"testPhoneProductPage"},
-            priority = 4)
-    public void testProductDesc(){
+    @Test(description = "SR-12120: Test product description is present", dependsOnMethods = {"TestPhoneProductPage"})
+    public void TestProductDesc(){
         WebElement productDesc = productSteps.getProductDescription();
         String url = driver.getCurrentUrl();
         CustomAssertions.isElementDisplayed(productDesc.isDisplayed(), url, "product description");
     }
 
-    @Test(description = "SR-12120: Test product description is present", dependsOnMethods = {"testPhoneProductPage"},
-            priority = 5)
-    public void testProductCartButton(){
+    @Test(description = "SR-12120: Test product description is present", dependsOnMethods = {"TestPhoneProductPage"})
+    public void TestProductCartButton(){
         WebElement productCartButton = productSteps.getProductCartButton();
         String url = driver.getCurrentUrl();
         CustomAssertions.isElementDisplayed(productCartButton.isDisplayed(), url, "product cart button");
     }
 
-    @Test(description = "SR-12121: Test add to cart browser alert", dependsOnMethods = {"testPhoneProductPage"},
-            priority = 6)
-    public void testAddToCartAlert() {
+    @Test(description = "SR-12121: Test add to cart browser alert", dependsOnMethods = {"TestPhoneProductPage"})
+    public void TestAddToCartAlert() {
         Wait<WebDriver> wait = new FluentWait<>(driver)
                 .withTimeout(Duration.ofSeconds(5))
                 .pollingEvery(Duration.ofMillis(2000))
